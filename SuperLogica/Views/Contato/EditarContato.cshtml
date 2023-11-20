@@ -1,0 +1,108 @@
+﻿@model SuperLogica.Models.ContatoResponse
+
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+<h1>Editar Contato</h1>
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["Message"]
+    </div>
+
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditarContato">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:none">
+                <label asp-for="ContatoID" class="control-label"></label>
+                <input asp-for="ContatoID" class="form-control" />
+                <span asp-validation-for="ContatoID" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="ValidaCelular"  class="control-label"></label>
+                <input asp-for="ValidaCelular"  class="form-control" />
+                <span asp-validation-for="ValidaCelular" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="ValidaEmail" class="control-label"></label>
+                <input asp-for="ValidaEmail" class="form-control" />
+                <span asp-validation-for="ValidaEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" Placeholder="Digite seu Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" Placeholder="Digite seu Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label"></label>
+                <input asp-for="Celular" id="celular" Placeholder="Digite seu Celuar" maxlength="11" class="form-control" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" id="txtCEP" Placeholder="Digite seu CEP"  class="form-control"/>
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logradouro" class="control-label"></label>
+                <input asp-for="Logradouro" id="Logradouro" Placeholder="Digite seu Logradouro" class="form-control" />
+                <span asp-validation-for="Logradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" Placeholder="Digite seu Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Complemento" class="control-label"></label>
+                <input asp-for="Complemento" Placeholder="Digite seu Complemento" class="form-control" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bairro" class="control-label"></label>
+                <input asp-for="Bairro" id="Bairro" Placeholder="Digite seu Bairro" class="form-control" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" id="Cidade" Placeholder="Digite seu Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" id="Estado" Placeholder="Digite seu Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <label></label>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+            <label></label>
+        </form>
+        @if (TempData["mensagemErro"] != null)
+        {
+            <div class="field-error">
+                @TempData["mensagemErro"]
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    @* <a asp-action="TodosContatos">Voltar</a> *@
+    @using (Html.BeginForm("TodosContatos", "Contato", FormMethod.Get))
+    {
+        <button type="submit" class="btn btn-dark">Voltar</button>
+    }
+</div>
+

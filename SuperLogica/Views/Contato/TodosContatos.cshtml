@@ -1,0 +1,120 @@
+﻿@model IEnumerable<SuperLogica.Models.ContatoResponse>
+
+@{
+    ViewData["Title"] = "TodosContatos";
+}
+
+<h1>Todos os Contatos</h1>
+
+@* <p>
+    <a asp-action="CriarContato">Novo</a>
+</p> *@
+@using (Html.BeginForm("CriarContato", "Contato", FormMethod.Get))
+{
+    <button type="submit" class="btn btn-success">Novo</button>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.ContatoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CEP)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.ContatoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                    @* @Html.ActionLink("Editar", "EditarContato", new { celular =item.Celular }) | *@
+                    @using (Html.BeginForm("EditarContato", "Contato", FormMethod.Get))
+                    {
+                        <input type="hidden" name="celular" value="@item.Celular" />
+
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    }
+            </td>
+            <td>
+                    @* @Html.ActionLink("Detalhes", "Detalhes", new { celular=item.Celular}) | *@
+                    @using (Html.BeginForm("Detalhes", "Contato", FormMethod.Get))
+                    {
+                        <input type="hidden" name="celular" value="@item.Celular" />
+
+                        <button type="submit" class="btn btn-success">Detalhes</button>
+                    }
+            </td>
+            <td>
+
+                    @* @Html.ActionLink("ExcluirContato", "ExcluirContato", new { id=item.ContatoID }) *@
+                    @using (Html.BeginForm("ExcluirContato", "Contato", FormMethod.Get))
+                    {
+                        <input type="hidden" name="ContatoID" value="@item.ContatoID" />
+
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

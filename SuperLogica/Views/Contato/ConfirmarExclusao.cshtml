@@ -1,0 +1,24 @@
+﻿@model SuperLogica.Models.ContatoResponse
+
+@{
+    ViewData["Title"] = "Confirmar Exclusão";
+}
+
+<h2>Confirmar Exclusão</h2>
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Nome)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Nome)
+    </dd>
+    <!-- Adicione mais propriedades do item conforme necessário -->
+
+</dl>
+
+<form asp-action="ExcluirContato" asp-route-id="@Model.ContatoID" method="post">
+    <input type="submit" value="Confirmar Exclusão" class="btn btn-danger" />
+    <a asp-action="TodosContatos">Cancelar</a>
+</form>
