@@ -6,16 +6,26 @@ namespace SuperLogica.Models
 {
     public class ContatoResponse
     {
+
         public int ContatoID { get; set; }
+        [Required(ErrorMessage = "O campo Nome é obrigatório.")]
         public string Nome { get; set; }
+        [Required(ErrorMessage = "O campo Email é obrigatório.")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "O campo Celular é obrigatório.")]
         public string Celular { get; set; }
-        public string Logradouro { get; set; }  
+        [Required(ErrorMessage = "O campo Logradouro é obrigatório.")]
+        public string Logradouro { get; set; }
+        [Required(ErrorMessage = "O campo Número é obrigatório.")]
         public string Numero { get; set; }
         public string? Complemento { get; set; }
+        [Required(ErrorMessage = "O campo Bairro é obrigatório.")]
         public string Bairro { get; set; }
+        [Required(ErrorMessage = "O campo Cidade é obrigatório.")]
         public string Cidade { get; set; }
-        public string Estado { get; set; }        
+        [Required(ErrorMessage = "O campo Estado é obrigatório.")]
+        public string Estado { get; set; }
+        [Required(ErrorMessage = "O campo CEP é obrigatório.")]
         public string CEP { get; set; }
         public string? ValidaCelular { get; set; }
         public string? ValidaEmail { get; set; }

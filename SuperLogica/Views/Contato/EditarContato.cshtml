@@ -8,9 +8,19 @@
 
 @if (ViewData["Message"] != null)
 {
-    <div class="alert alert-danger" role="alert">
-        @ViewData["Message"]
-    </div>
+    if (ViewData["Message"] == "Cadastro Atualizado com Sucesso!")
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewData["Message"]
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewData["Message"]
+        </div>
+    }
+    
 
 }
 <hr />
@@ -89,12 +99,6 @@
             </div>
             <label></label>
         </form>
-        @if (TempData["mensagemErro"] != null)
-        {
-            <div class="field-error">
-                @TempData["mensagemErro"]
-            </div>
-        }
     </div>
 </div>
 
