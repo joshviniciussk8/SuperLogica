@@ -109,8 +109,7 @@ namespace SuperLogica.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditarContato(ContatoResponse contatoResponse)
         {
-            string celular = contatoResponse.Celular.Replace("-", "").Replace(" ", "").Trim();
-            
+                        
             if (!ContatoResponse.ValidaContato(contatoResponse))
             {
                 ViewData["message"] = "Dados faltando, verifique os campos e tente novamente!";
