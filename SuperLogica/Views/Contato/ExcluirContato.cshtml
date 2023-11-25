@@ -81,7 +81,13 @@
     
     <form asp-action="ExcluirContato">
         <input type="hidden" name="ContatoID" value="@Model.ContatoID" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="TodosContatos">Voltar</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" />
     </form>
+    <label></label>
+        @using (Html.BeginForm("TodosContatos", "Contato", FormMethod.Get))
+        {
+            <button type="submit" class="btn btn-dark">Voltar</button>
+        }
+    
+    
 </div>
